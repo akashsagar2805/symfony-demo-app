@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Products!{% endblock %}
+{% block title %}Product!{% endblock %}
 
 {% block body %}
-<h1> Products </h1>
-<a href="{{ path('product_new')}}"> New Product</a>
+<h1> Product </h1>
 <table>
     <thead>
     <tr>
@@ -14,16 +13,13 @@
     </tr>
     </thead>
     <tbody>
-        {% for product in products %}
         <tr>
-        <td>
-        <a href="{{path('product_show', {'id': product.id })}}">{{ product.name }}</a>
-        </td>
+        <td>{{ product.name }}</td>
         <td>{{ product.description }}</td>
         <td>{{ product.size }}</td>
         </tr>
-        {% endfor %}
     </tbody>
 </table>
-
+<a href="{{ path('product_edit', {'id': product.id})}}">Edit</a>
+<a href="{{ path('product_delete', {'id': product.id})}}">Delete</a>
 {% endblock %}
